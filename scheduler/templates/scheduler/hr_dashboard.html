@@ -1,0 +1,35 @@
+<!-- hr_dashboard.html -->
+<h1>HR Dashboard</h1>
+
+<h2>Candidates</h2>
+{% if candidates %}
+    <ul>
+        {% for candidate in candidates %}
+            <li>{{ candidate.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No candidates available for scheduling.</p>
+{% endif %}
+
+<h2>Interviewers</h2>
+{% if interviewers %}
+    <ul>
+        {% for interviewer in interviewers %}
+            <li>{{ interviewer.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No interviewers available for scheduling.</p>
+{% endif %}
+
+<h2>Scheduled Interviews</h2>
+{% if interviews %}
+    <ul>
+        {% for interview in interviews %}
+            <li>{{ interview.candidate.name }} - {{ interview.interviewer.name }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No scheduled interviews.</p>
+{% endif %}
