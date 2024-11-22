@@ -2,6 +2,10 @@ from django.shortcuts import render, redirect
 from .forms import CandidateForm, InterviewerForm, InterviewForm
 from .models import Interview
 
+def index(request):
+    return render(request, 'index.html')
+
+    
 def candidate_schedule(request):
     if request.method == 'POST':
         form = CandidateForm(request.POST)
