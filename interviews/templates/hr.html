@@ -1,17 +1,32 @@
 {% extends 'base.html' %}
 {% block content %}
-<form method="get">
-    Candidate ID: <input type="number" name="candidate_id"><br>
-    Interviewer ID: <input type="number" name="interviewer_id"><br>
-    <button type="submit">Find Slots</button>
-</form>
+<div class="container">
+    <h2 class="mb-4">Find Interview Slots</h2>
+    <form method="get" class="bg-white p-4 shadow-sm rounded">
+        <div class="mb-3">
+            <label for="candidate_id" class="form-label">Candidate ID:</label>
+            <input type="number" id="candidate_id" name="candidate_id" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="interviewer_id" class="form-label">Interviewer ID:</label>
+            <input type="number" id="interviewer_id" name="interviewer_id" class="form-control" required>
+        </div>
+        
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Find Slots</button>
+            <a href="{% url 'index' %}" class="btn btn-secondary">Home</a>
+        </div>
+    </form>
 
-{% if possible_slots %}
-<h2>Possible Slots:</h2>
-<ul>
-    {% for start, end in possible_slots %}
-    <li>{{ start }} - {{ end }}</li>
-    {% endfor %}
-</ul>
-{% endif %}
+    {% if possible_slots %}
+    <div class="mt-4">
+        <h3>Possible Interview Slots:</h3>
+        <ul class="list-group">
+            {% for start, end in possible_slots %}
+            <li class="list-group-item">{{ start }} - {{ end }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+</div>
 {% endblock %}

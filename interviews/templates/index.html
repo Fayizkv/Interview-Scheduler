@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
-<a href="/availability/">Register Availability</a><br>
-<a href="/hr/">HR Dashboard</a>
+<div class="text-center">
+    <h2 class="mb-4">Welcome to the Interview Scheduler</h2>
+    <p class="lead">Please choose an option below:</p>
+    <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="/availability/" class="btn btn-primary btn-lg">Register Availability</a>
+        <a href="/hr/" class="btn btn-success btn-lg">HR Dashboard</a>
+    </div>
+</div>
 {% endblock %}
